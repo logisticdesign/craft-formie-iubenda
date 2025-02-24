@@ -28,3 +28,10 @@ composer require logisticdesign/craft-formie-iubenda
 # tell Craft to install the plugin
 ./craft plugin/install formie-iubenda
 ```
+
+## Add an integration in the Formie settings
+
+1. Open Formie settings and go to **Miscellaneous** under **Integrations**
+2. Click the **New Integration** button.
+3. Select the **Iubenda Consent Database** option and follow instructions
+4. Click the **Refresh** button to check API connection
