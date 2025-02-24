@@ -1,0 +1,34 @@
+{% import '_includes/forms' as forms %}
+{% import 'verbb-base/_macros' as macros %}
+
+{% set displayName = integration.displayName() %}
+
+{% set instructions %}
+### Connect to the {name} API
+1. Go to the <a target="_blank" href="https://www.iubenda.com" target="_blank">Iubenda Dashboard</a>.
+2. Create or open the website and enable Consent Database.
+3. Go to the Consent Database configuration section.
+4. Under the **HTTP API** tab, copy the **Private API key** and paste into the field below.
+5. Then click the **Save** button.
+{% endset %}
+
+<div class="fui-settings-block">
+    {{ instructions | t('formie', { name: displayName }) | md }}
+</div>
+
+{% if not craft.app.config.general.allowAdminChanges %}
+    <span class="warning with-icon">
+        {{ 'Integration settings can only be editable on an environment with `allowAdminChanges` enabled.' | t('formie') | md(inlineOnly=true) }}
+    </span>
+{% endif %}
+
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
+    label: 'Private Key' | t('formie'),
+    instructions: 'Enter your {name} {label} here.' | t('formie'),
+    name: 'privateKey',
+    required: true,
+    suggestEnvVars: true,
+    value: integration.settings.privateKey ?? '',
+    warning: macros.configWarning('privateKey', 'formie'),
+    errors: integration.getErrors('privateKey'),
+}) }}
