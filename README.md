@@ -23,7 +23,7 @@ Open your terminal and run the following commands:
 cd /path/to/my-project.test
 
 # tell Composer to load the plugin
-composer require logistic-design/craft-formie-iubenda
+composer require logisticdesign/craft-formie-iubenda
 
 # tell Craft to install the plugin
 ./craft plugin/install formie-iubenda
