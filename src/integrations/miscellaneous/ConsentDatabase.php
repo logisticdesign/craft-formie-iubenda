@@ -57,15 +57,15 @@ class ConsentDatabase extends Miscellaneous
                 'required' => true,
             ]),
             new IntegrationField([
-                'handle' => 'first_name',
+                'handle' => 'firstName',
                 'name' => Craft::t('formie-iubenda', 'First name'),
             ]),
             new IntegrationField([
-                'handle' => 'last_name',
+                'handle' => 'lastName',
                 'name' => Craft::t('formie-iubenda', 'Last name'),
             ]),
             new IntegrationField([
-                'handle' => 'full_name',
+                'handle' => 'fullName',
                 'name' => Craft::t('formie-iubenda', 'Full name'),
             ]),
             new IntegrationField([
@@ -87,9 +87,9 @@ class ConsentDatabase extends Miscellaneous
             $payload = [
                 'subject' => [
                     'email' => $formValues['email'] ?? null,
-                    'first_name' => $formValues['first_name'] ?? null,
-                    'last_name' => $formValues['last_name'] ?? null,
-                    'full_name' => $formValues['full_name'] ?? null,
+                    'first_name' => $formValues['firstName'] ?? null,
+                    'last_name' => $formValues['lastName'] ?? null,
+                    'full_name' => $formValues['fullName'] ?? null,
                 ],
                 'preferences' => [
                     'form_name' => $submission->getFormHandle(),
@@ -151,7 +151,6 @@ class ConsentDatabase extends Miscellaneous
     {
         return $value == true ? 'true' : 'false';
     }
-
 
     public function defineRules(): array
     {
