@@ -68,10 +68,6 @@ class ConsentDatabase extends Miscellaneous
                 'handle' => 'fullName',
                 'name' => Craft::t('formie-iubenda', 'Full name'),
             ]),
-            new IntegrationField([
-                'handle' => 'privacy',
-                'name' => Craft::t('formie-iubenda', 'Privacy'),
-            ]),
         ];
 
         return new IntegrationFormSettings([
@@ -104,7 +100,7 @@ class ConsentDatabase extends Miscellaneous
                     ['identifier' => 'privacy_policy'],
                     ['identifier' => 'cookie_policy'],
                 ],
-                'ip_address' => Craft::$app->getRequest()->getUserIP(),
+                'ip_address' => $submission->ipAddress,
                 'autodetect_ip_address' => false,
             ];
 
