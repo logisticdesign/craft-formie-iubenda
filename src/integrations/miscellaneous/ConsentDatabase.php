@@ -89,7 +89,7 @@ class ConsentDatabase extends Miscellaneous
                 ],
                 'preferences' => [
                     'form_name' => $submission->getFormHandle(),
-                    'privacy' => $this->boolToString($formValues['privacy'] ?? false),
+                    'privacy' => 'true',
                 ],
                 'proofs' => [
                     [
